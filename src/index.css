@@ -1,0 +1,14 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+nav a{
+  font-family: 'Baloo Bhai 2', cursive;
+}
+
+@layer components{
+  
+  
+}
