@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.popup{
+  display:none; /*Display none because we change this property to toggle betwee popup and close*/
+  position: fixed; /* position fixed is required because cover should be fixed*/
+  z-index: 1; /* alignments of cover should be full covered windows without space and starting from top of the page*/
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto; /*Overflow because container can scroll if needed*/
+  background-color: rgba(0,0,0,0.4); /* Opacity 0.4*/ 
+}
+ /* Hide scrollbar for Chrome, Safari and Opera */
+ .scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+} 
+
+@layer components{
+  .blog-post {
+    @apply flex flex-col max-w-md shadow-2xl bg-gradient-to-r from-blue-200 to-white p-5 rounded-t-sm  my-4 mx-6
+  }
+  .blog-post-img{
+    @apply border-2 border-black m-2 rounded-sm
+  }
+  .blog-post-title{
+    @apply to-blue-700 text-2xl font-bold m-2
+  }
+  .blog-post-author{
+    @apply opacity-60 px-2 text-right
+  }
+  .blog-post-text{
+    @apply opacity-80 px-2 text-justify m-2
+  }
+  .blog-post-link{
+    @apply text-yellow-900
+  }
+  .blog-close-btn{
+    @apply float-right text-3xl transition transform hover:-translate-y-1 hover:scale-150 px-2 pb-1 focus:outline-none
+  }
+  .blog-post-full{
+    @apply flex shadow-2xl bg-blue-50 p-5 rounded-xl  my-4 mx-6 gap-x-5 items-center p-6 transition transform ease-in-out
+  }
+}

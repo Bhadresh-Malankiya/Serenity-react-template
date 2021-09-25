@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="tailwind.css">
+    <title>my_website</title>
+  </head>
+  <script>
+   
+    function getPage(page){
+      toogleNavbar();
+      document.querySelector("main").innerHTML = "<"+page+"></"+page+">";
+      fetch("../src/"+page+".html")
+      .then(response => {
+        return response.text()
+      })
+      .then(data => {
+      document.querySelector(page).innerHTML = data;
+      });
+    }
+
+    fetch("../src/navbar.html")
+  .then(response => {
+    return response.text()
+  })
+  .then(data => {
+    document.querySelector("navbar").innerHTML = data;
+  });
+  fetch("../src/footer.html")
+  .then(response => {
+    return response.text()
+  })
+  .then(data => {
+    document.querySelector("footer").innerHTML = data;
+  });
+
+  fetch("../src/home.html")
+  .then(response => {
+    return response.text()
+  })
+  .then(data => {
+    document.querySelector("home").innerHTML = data;
+  });
+  
+  fetch("../src/login.html")
+  .then(response => {
+    return response.text()
+  })
+  .then(data => {
+    document.querySelector("login").innerHTML = data;
+  });
+  
+  </script>
+  <body  class="bg-gradient-to-r from-blue-200 to-white">
+    <navbar Class="min-w-full inset-y-0"></navbar>
+    <login></login>
+    <main class="lg:mt-auto">
+      <home></home>
+    </main>
+    <footer></footer>
+  </body>
+</html>
+<script>
+  /* we have to create 2 event hander functions showform and hide form */
+    function showblog(blog){
+      document.getElementById(blog).style.display = 'block';
+    }
+    function closeblog(blog){
+      document.getElementById(blog).style.display = 'none';
+    }
+    function toogleNavbar(){
+      document.getElementById("navbar-toggle").classList.toggle("hidden");
+      document.getElementsByTagName("main")[0].classList.toggle("sm:mt-62");
+    }
+    function autoScroll(){
+      var e = window.event;
+      var posX = e.clientX;
+      document.getElementById("slider").scrollLeft = posX;
+   }
+</script>
